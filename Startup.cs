@@ -23,11 +23,18 @@ namespace McCrudFire
         {
             app.UseRouting(); // Bize gelen request'in hangi route ile eþleþdiðinin bilgsini verir.
 
+            // Aþaðýdaki kod route'nýn çalýþtýrýlmasýný saðlar.
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
+                });
+
+                // Ýkinci bir end point ekledik
+                endpoints.MapGet("/products", async context =>
+                {
+                    await context.Response.WriteAsync("Products List!");
                 });
             });
         }
