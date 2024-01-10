@@ -16,26 +16,23 @@ namespace McCrudFire
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();   
+            }
+
             app.UseRouting(); // Bize gelen request'in hangi route ile eþleþdiðinin bilgsini verir.
 
             // Aþaðýdaki kod route'nýn çalýþtýrýlmasýný saðlar.
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-
-                // Ýkinci bir end point ekledik
-                endpoints.MapGet("/products", async context =>
-                {
-                    await context.Response.WriteAsync("Products List!");
-                });
+                endpoints.MapControllers();
             });
         }
     }
