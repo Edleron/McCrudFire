@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+ï»¿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,12 +24,12 @@ namespace McCrudFire
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();   
+                app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting(); // Bize gelen request'in hangi route ile eþleþdiðinin bilgsini verir.
+            app.UseRouting(); // Bize gelen request'in hangi route ile eÅŸleÅŸtiÄŸinin bilgsini verir.
 
-            // Aþaðýdaki kod route'nýn çalýþtýrýlmasýný saðlar.
+            // AÃ¾aÃ°Ã½daki kod route'nÃ½n Ã§alÃ½Ã¾tÃ½rÃ½lmasÃ½nÃ½ saÃ°lar.
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
